@@ -8,6 +8,34 @@
 <h2>Are you comming to the party?</h2>
 
 <form asp-action="Register" method="post">
-    <!--TODO: read the guest response fields -->
-    <a asp-action="Index">Cancel</a>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" placeholder="Enter your name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" placeholder="Enter your email address" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" class="form-control" placeholder="Enter your phone number" />
+    </div>
+    <div class="form-group">
+        <label asp-for="WillAttend">Are you comming to the party?</label>
+        <select asp-for="WillAttend" class="form-control">
+            <option value="">
+                I don't know yet
+            </option>
+            <option value="true">
+                Yes, I will go to the party
+            </option>
+            <option value="false">
+                No, sorry can't make it
+            </option>
+        </select>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
 </form>
