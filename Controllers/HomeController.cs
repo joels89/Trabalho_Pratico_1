@@ -42,6 +42,11 @@ namespace PartyInvites.Controllers
             return View("ThankYou", response);
         }
 
+        public IActionResult GuestList()
+        {
+            return View(Repository.Responses);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
