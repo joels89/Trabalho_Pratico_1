@@ -8,6 +8,8 @@
 <h2>Are you comming to the party?</h2>
 
 <form asp-action="Register" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
     <div class="form-group">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" placeholder="Enter your name" />
