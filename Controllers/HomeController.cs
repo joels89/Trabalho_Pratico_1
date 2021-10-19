@@ -47,6 +47,10 @@ namespace PartyInvites.Controllers
             return View(Repository.Responses);
         }
 
+        public IActionResult PeopleComingParty() {
+            return View(Repository.Responses.Where(g => g.WillAttend == true));
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

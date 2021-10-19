@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GuestResponse>
+
+@{
+	ViewData["Title"] = "People coming to party";
+}
+
+<h1>People comming to party</h1>
+
+<div class="mb-3">
+	<a asp-action="GuestList">See all answers</a>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var guest in Model) {
+			<tr>
+				<td>@guest.Name</td>
+			</tr>
+		}
+	</tbody>
+</table>

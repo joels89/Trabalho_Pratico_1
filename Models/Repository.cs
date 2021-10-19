@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace PartyInvites.Models
 {
+
+    // NEVER DO THIS !!!
+    // This is only for demonstration/academic purposes
     public class Repository
     {
         private static List<GuestResponse> responses = new List<GuestResponse>();

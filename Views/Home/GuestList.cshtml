@@ -1,24 +1,37 @@
 ﻿@model IEnumerable<GuestResponse>
 
 @{
-    ViewData["Title"] = "Guest List";
+	ViewData["Title"] = "Guest List";
 }
 
 <h1>Guest List</h1>
 
+<div class="mb-3">
+	<a asp-action="PeopleComingParty">See only people comming to party</a>
+</div>
+
 <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var guest in Model)
-        {
-            <tr>
-                <td>@guest.Name</td>
-            </tr>
-        }
-    </tbody>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Attending party</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var guest in Model) {
+			<tr>
+				<td>@guest.Name</td>
+				<td>
+					@if (guest.WillAttend == null) {
+						@: Don't Know
+					} else if (guest.WillAttend == true) {
+						@: Yes
+					} else {
+						@: No
+					}
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
 
