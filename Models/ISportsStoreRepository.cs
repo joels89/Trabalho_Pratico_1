@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace SportsStore.Models {
-	interface ISportsStoreRepository {
+	public interface ISportsStoreRepository {
 		public IEnumerable<Product> Products { get; }
 	}
 }
