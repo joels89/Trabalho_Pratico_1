@@ -155,7 +155,10 @@ namespace Books.Controllers
             var book = await _context.Book.FindAsync(id);
             _context.Book.Remove(book);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            ViewBag.Title = "Book deleted";
+            ViewBag.Message = "Book sucessfully deleted.";
+            return View("Success");
         }
 
         private bool BookExists(int id)
