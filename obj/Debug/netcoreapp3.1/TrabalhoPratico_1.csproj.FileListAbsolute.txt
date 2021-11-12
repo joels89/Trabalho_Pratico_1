@@ -23,7 +23,6 @@ C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\TrabalhoP
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\TrabalhoPratico_1.TagHelpers.output.cache
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\TrabalhoPratico_1.RazorCoreGenerate.cache
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -110,4 +109,4 @@ C:\Users\jsousa\source\repos\TrabalhoPratico_1\bin\Debug\netcoreapp3.1\tr\Micros
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\jsousa\source\repos\TrabalhoPratico_1\bin\Debug\netcoreapp3.1\bundleconfig.json
-C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sobre.cshtml.g.cs
+C:\Users\jsousa\source\repos\TrabalhoPratico_1\obj\Debug\netcoreapp3.1\Razor\Views\Privacy\Privacy.cshtml.g.cs
