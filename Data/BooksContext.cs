@@ -27,6 +27,14 @@ namespace Books.Data
                 .HasOne(bc => bc.Category)
                 .WithMany(c => c.CategoryBooks)
                 .HasForeignKey(bc => bc.CategoryId);
+
+            var foreignKeysWithCascadeDelete = modelBuilder.Model.GetEntityTypes()
+                .SelectMany(t => t.GetForeignKeys())
+                .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
+
+            foreach (var fk in foreignKeysWithCascadeDelete) {
+                fk.DeleteBehavior = DeleteBehavior.Restrict;
+            }
         }
 
         public DbSet<Books.Models.Book> Book { get; set; }
