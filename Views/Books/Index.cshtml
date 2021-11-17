@@ -6,8 +6,6 @@
 
 <h1>Books</h1>
 
-<p>There are a total of @Model.PagingInfo.TotalItems books</p>
-
 <p>
 	<a asp-action="Create" class="btn btn-dark">Create New</a>
 </p>
@@ -25,3 +23,21 @@
 		</div>
 	</div>
 }
+
+<nav class="mt-3">
+	<ul class="pagination">
+		<li class="page-item">
+			<a class="page-link" asp-action="Index" asp-route-page="1">First</a>
+		</li>
+		@{
+			for (int p = 1; p <= Model.PagingInfo.TotalPages; p++) {
+				<li class="page-item">
+					<a class="page-link" asp-action="Index" asp-route-page="@p">@p</a>
+				</li>
+			}
+		}
+		<li class="page-item">
+			<a class="page-link" asp-action="Index" asp-route-page="@Model.PagingInfo.PageSize">Last</a>
+		</li>
+	</ul>
+</nav>
