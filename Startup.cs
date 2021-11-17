@@ -37,7 +37,7 @@ namespace Books {
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, BooksContext booksContext) {
 			if (env.IsDevelopment()) {
 				app.UseDeveloperExceptionPage();
 				app.UseMigrationsEndPoint();
@@ -60,6 +60,8 @@ namespace Books {
 					pattern: "{controller=Home}/{action=Index}/{id?}");
 				endpoints.MapRazorPages();
 			});
+
+			SeedData.Populate(booksContext);
 		}
 	}
 }
