@@ -62,7 +62,8 @@ namespace Books {
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, 
 			BooksContext booksContext,
-			UserManager<IdentityUser> userManager) {
+			UserManager<IdentityUser> userManager,
+			RoleManager<IdentityRole> roleManager) {
 
 			if (env.IsDevelopment()) {
 				app.UseDeveloperExceptionPage();
@@ -87,6 +88,7 @@ namespace Books {
 				endpoints.MapRazorPages();
 			});
 
+			SeedData.CreateRoles(roleManager);
 			SeedData.CreateDefaultAdmin(userManager);
 
 			if (env.IsDevelopment())

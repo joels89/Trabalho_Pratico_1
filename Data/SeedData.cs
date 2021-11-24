@@ -12,6 +12,10 @@ namespace Books.Data {
 		private const string ADMIN_EMAIL = "admin@ipg.pt";
 		private const string ADMIN_PASS = "Secret123$";
 
+		private const string ROLE_ADMINISTRATOR = "admin";
+		private const string ROLE_PRODUCT_MANAGER = "product_manager";
+		private const string ROLE_CUSTOMER = "customer";
+
 		internal static void Populate(BooksContext booksContext) {
 #if TEST_PAGINATION_BOOKS
 			Author author = booksContext.Author.FirstOrDefault();
@@ -57,6 +61,20 @@ namespace Books.Data {
 		internal static void PopulateUsers(UserManager<IdentityUser> userManager)
 		{
 			
+		}
+
+		internal static void CreateRoles(RoleManager<IdentityRole> roleManager)
+		{
+			EnsureRoleIsCreatedAsync(roleManager, ROLE_ADMINISTRATOR).Wait();
+			EnsureRoleIsCreatedAsync(roleManager, ROLE_PRODUCT_MANAGER).Wait();
+			EnsureRoleIsCreatedAsync(roleManager, ROLE_CUSTOMER).Wait();
+		}
+
+		private static async Task EnsureRoleIsCreatedAsync(RoleManager<IdentityRole> roleManager, string role)
+		{
+			if (await roleManager.RoleExistsAsync(role)) return;
+
+			await roleManager.CreateAsync(new IdentityRole(role));
 		}
 	}
 }
