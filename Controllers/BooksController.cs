@@ -76,7 +76,7 @@ namespace Books.Controllers
         }
 
         // GET: Books/Create
-        [Authorize]
+        [Authorize(Roles = "product_manager")]
         public IActionResult Create()
         {
             ViewData["AuthorId"] = new SelectList(_context.Set<Author>(), "AuthorId", "Name");
@@ -85,10 +85,10 @@ namespace Books.Controllers
 
         // POST: Books/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.        
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "product_manager")]
         public async Task<IActionResult> Create([Bind("BookId,Title,Description,AuthorId")] Book book)
         {
             if (ModelState.IsValid)
@@ -105,6 +105,7 @@ namespace Books.Controllers
         }
 
         // GET: Books/Edit/5
+        [Authorize(Roles = "product_manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -126,6 +127,7 @@ namespace Books.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "product_manager")]
         public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Description,AuthorId")] Book book)
         {
             if (id != book.BookId)
@@ -161,6 +163,7 @@ namespace Books.Controllers
         }
 
         // GET: Books/Delete/5
+        [Authorize(Roles = "product_manager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -182,6 +185,7 @@ namespace Books.Controllers
         // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "product_manager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var book = await _context.Book.FindAsync(id);
