@@ -6,9 +6,12 @@
 
 <h1>Books</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-dark">Create New</a>
-</p>
+@if (User.IsInRole("product_manager"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-dark">Create New</a>
+    </p>
+}
 
 <div class="card">
     <div class="card-body">
@@ -33,8 +36,11 @@
             <p class="card-text">@book.Description</p>
 
             <a asp-action="Details" asp-route-id="@book.BookId" class="btn btn-info">Details</a>
-            <a asp-action="Edit" asp-route-id="@book.BookId" class="btn btn-warning">Edit</a>
-            <a asp-action="Delete" asp-route-id="@book.BookId" class="btn btn-danger">Delete</a>
+            @if (User.IsInRole("product_manager"))
+            {
+                <a asp-action="Edit" asp-route-id="@book.BookId" class="btn btn-warning">Edit</a>
+                <a asp-action="Delete" asp-route-id="@book.BookId" class="btn btn-danger">Delete</a>
+            }
         </div>
     </div>
 }
