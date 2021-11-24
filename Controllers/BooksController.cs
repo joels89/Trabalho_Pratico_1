@@ -49,7 +49,8 @@ namespace Books.Controllers
             return View(
                 new BookListViewModel {
                     Books = books,
-                    PagingInfo = pagingInfo
+                    PagingInfo = pagingInfo,
+                    TitleSearched = title
                 }
             );
         }
