@@ -197,6 +197,19 @@ namespace Books.Controllers
             return View("Success");
         }
 
+        [Authorize(Roles = "customer")]
+        public string Buy(int id)
+		{
+            var username = User.Identity.Name;
+
+            //var customer = _context.Customer.SingleOrDefault(c => c.Email == username);
+            //if (customer == null) return NotFound();
+
+            // ...
+
+            return "The option for customers to buy books will be added soon !!!";
+        }
+
         private bool BookExists(int id)
         {
             return _context.Book.Any(e => e.BookId == id);
