@@ -8,9 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Books.Data;
 using Books.Models;
 using Books.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Books.Controllers
-{
+{    
     public class BooksController : Controller
     {
         private readonly BooksContext _context;
@@ -75,6 +76,7 @@ namespace Books.Controllers
         }
 
         // GET: Books/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["AuthorId"] = new SelectList(_context.Set<Author>(), "AuthorId", "Name");
@@ -84,6 +86,7 @@ namespace Books.Controllers
         // POST: Books/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookId,Title,Description,AuthorId")] Book book)
